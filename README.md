@@ -1,7 +1,9 @@
 # ORMProject
 
 ## **Description**
-Ce projet est une implémentation simplifiée d'un ORM (Object-Relational Mapping) en PHP. L'objectif principal est de permettre une interaction simple entre les entités PHP et une base de données MySQL via des principes d'architecture logicielle tels que Repository Pattern, Adapter Pattern, et l'utilisation des Value Objects.
+Ce projet est une implémentation d'un ORM (Object-Relational Mapping) en PHP. 
+L'objectif principal est de permettre une interaction simple entre les entités PHP et une base de données MySQL via des principes d'architecture logicielle tels que 
+`Repository Pattern`, `Adapter Pattern`, et l'utilisation des `Value Objects`.
 
 ---
 
@@ -31,7 +33,7 @@ Ce projet est une implémentation simplifiée d'un ORM (Object-Relational Mappin
    - Faciliter le remplacement ou l'évolution de la technologie utilisée.
 
 3. **Value Object** :
-   - Encapsulation de types complexes dans des objets dédiés pour améliorer la lisibilité et la validation (par exemple, `Uid` pour les identifiants uniques).
+   - Encapsulation de types complexes dans des objets pour améliorer la lisibilité et la validation (par exemple, `Uid` pour les identifiants uniques).
 
 ---
 
@@ -67,3 +69,68 @@ ORMProject/
 ├── vendor/                 # Géré par Composer
 ├── composer.json           # Configuration des dépendances
 └── .gitignore              # Fichiers à ignorer par Git
+```
+
+---
+
+### **3. Implémentation des Fichiers**
+
+#### **Fichier `config/config.php`**
+- Contient les paramètres de connexion à la base de données.
+
+#### **Fichier `src/Adapter/DatabaseAdapter.php`**
+- Classe responsable de l'interaction avec PDO pour la connexion et les requêtes SQL.
+
+#### **Fichier `src/Entity/News.php`**
+- Représentation PHP de la table `news`.
+- Encapsulation des propriétés et validation des données.
+
+#### **Fichier `src/ValueObject/Uid.php`**
+- Classe pour gérer les identifiants UUID.
+
+#### **Fichier `src/Repository/NewsRepository.php`**
+- Gère les opérations en lecture/écriture pour la table `news`.
+- Contient des méthodes comme `findById`, `findAll`, `save`, `update`, et `delete`.
+
+#### **Fichier `src/Manager/EntityManager.php`**
+- Classe principale pour orchestrer les opérations CRUD via le Repository.
+
+#### **Fichier `public/index.php`**
+- Point d'entrée pour tester les fonctionnalités via des actions passées en paramètre GET (`?action=read`).
+
+---
+
+### **4. Tests Réalisés**
+- **Lecture des News** :
+  - URL : `http://localhost/ORMProject/public/index.php?action=read`
+  - Affiche les informations des news stockées en base.
+- **Insertion et Suppression** :
+  - Testées via des appels dans `index.php`.
+
+---
+
+## **Prochaines Étapes**
+- Ajouter un Query Builder pour générer des requêtes SQL dynamiques.
+- Intégrer des tests unitaires pour valider chaque composant.
+- Permettre la gestion de plusieurs entités avec une architecture extensible.
+- Ajouter des logs pour tracer les erreurs et les actions effectuées.
+
+---
+
+## **Exemple d'Utilisation**
+1. Cloner le projet :
+   ```bash
+   git clone https://github.com/SamymaS/ORMProject.git
+   ```
+
+2. Installer les dépendances Composer :
+   ```bash
+   composer install
+   ```
+
+3. Configurer la base de données dans `config/config.php`.
+
+4. Accéder au projet via le navigateur :
+   ```plaintext
+   http://localhost/ORMProject/public/index.php?action=read
+   ```
