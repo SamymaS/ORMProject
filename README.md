@@ -128,6 +128,8 @@ ORMProject/
    http://localhost/ORMProject/public/index.php?action=read
    ```
 
+---
+
 ## **Ce projet remplit les conditions des consignes demandées, il respecte les principes suivants :**
 1. Récupérer une entrée en base de données :
    ```Réalisation dans le projet :
@@ -156,7 +158,10 @@ ORMProject/
    - Les responsabilités sont séparées entre les adapteurs (gestion des bases de données),
      les repositories (gestion des requêtes SQL), et les entités (représentation métier).
    ```
-Validation :
+   
+---
+   
+## **Validation** :
 1. Objectif : Le projet transforme bien une entrée de la base de données en ojet métier
    grâce aux méthodes du repository.
 2. Précision dans la consigne : l'objectif est atteint si la récupération et la transformation respectent les designs discutés (Repository et Adapter patterns), ce qui est le cas dans mon projet.
@@ -169,13 +174,15 @@ Validation :
      relations complexes).
    ```
 
-   ---
+---
 
 ## **Prochaines Étapes**
 - Ajouter un Query Builder pour générer des requêtes SQL dynamiques.
 - Intégrer des tests unitaires pour valider chaque composant.
 - Permettre la gestion de plusieurs entités avec une architecture extensible.
 - Ajouter des logs pour tracer les erreurs et les actions effectuées.
+
+---
 
 ## **Auteur**
 Samy Boudaoud M1 DEV IOT
