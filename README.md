@@ -137,7 +137,7 @@ ORMProject/
    ```
 2. Transmettre à l'application sous forme d'objet métier :
    ```Réalisation dans le projet :
-   - Les résultats des requêtes SQL sont transformés en isntances de la classe 'News',
+   - Les résultats des requêtes SQL sont transformés en instances de la classe 'News',
      qui est une entité métier.
    - La méthode 'mapRowToNews' dans 'NewsRepository' assure la transformation des données
      brutes SQL en objets News.
