@@ -112,33 +112,39 @@ ORMProject/
 
 ## **Exemple d'Utilisation**
 1. Cloner le projet :
-   ```bash
+- bash :
+   ```
    git clone https://github.com/SamymaS/ORMProject.git
    ```
 
 2. Installer les dépendances Composer :
-   ```bash
+- bash :
+   ```
    composer install
    ```
 
 3. Configurer la base de données dans `config/config.php`.
 
 4. Accéder au projet via le navigateur :
-   ```plaintext
+- plaintext :
+   ```
    http://localhost/ORMProject/public/index.php?action=read
    ```
 
 ---
 
 ## **Ce projet remplit les conditions des consignes demandées, il respecte les principes suivants :**
+
 1. Récupérer une entrée en base de données :
-   ```Réalisation dans le projet :
+  Réalisation dans le projet :
+   ```
    - La classe 'NewsRepository' inclut des méthodes comme 'findById' et 'findAll'
      qui exécutent des requêtes SQL pour récupérer des données de la bdd.
    - Ces requêtes récupèrent les informations depuis la tables 'news'.
    ```
-2. Transmettre à l'application sous forme d'objet métier :
-   ```Réalisation dans le projet :
+3. Transmettre à l'application sous forme d'objet métier :
+  Réalisation dans le projet :
+   ```
    - Les résultats des requêtes SQL sont transformés en instances de la classe 'News',
      qui est une entité métier.
    - La méthode 'mapRowToNews' dans 'NewsRepository' assure la transformation des données
@@ -146,33 +152,41 @@ ORMProject/
    - Ces objets 'News' contiennent des prorpiétés comme 'id', 'content' et 'createdAt',
      accessibles via des méthodes de type "getter".
    ```
-3. Respect des desings passés en revue :
-   ```Repository Pattern :
-   - Utilisé dans la classe 'NewsRepository' pour isoler la logique d'accès aux données.
+4. Respect des designs passés en revue :
+  
+  Repository Pattern : 
    ```
-   ```Adapter Pattern :
-   - Implémenter via la classe 'DatabaseAdapter", qui gère la connexion à la base de données
-     en encapsulant l'utilisation de PDO.
+     - Utilisé dans la classe 'NewsRepository' pour isoler la logique d'accès aux données.
    ```
-   ```Separation of Concerns :
-   - Les responsabilités sont séparées entre les adapteurs (gestion des bases de données),
-     les repositories (gestion des requêtes SQL), et les entités (représentation métier).
+   Adapter Pattern :
+   ```
+  - Implémenter via la classe 'DatabaseAdapter", qui gère la connexion à la base de données
+    en encapsulant l'utilisation de PDO.
+   ```
+   Separation of Concerns :
+   ```
+  - Les responsabilités sont séparées entre les adapteurs (gestion des bases de données),
+    les repositories (gestion des requêtes SQL), et les entités (représentation métier).
    ```
    
 ---
    
 ## **Validation** :
-1. Objectif : Le projet transforme bien une entrée de la base de données en ojet métier
+1. Objectif :
+   - Le projet transforme bien une entrée de la base de données en ojet métier
    grâce aux méthodes du repository.
-2. Précision dans la consigne : l'objectif est atteint si la récupération et la transformation respectent les designs discutés (Repository et Adapter patterns), ce qui est le cas dans mon projet.
+   
+2. Précision dans la consigne :
+   - L'objectif est atteint si la récupération et la transformation respectent les designs discutés
+   (Repository et Adapter patterns), ce qui est le cas dans mon projet.
 
-3. 
-   ```Point de validation supplémentaires :
+3. Point de validation supplémentaires :
+   
    - L'objet métier ('News') est exploité dans l'application (par exemple, affiché dans
      index.php').
    - La récupération des données est conforme à un ORM simple (sans gestion des états ou
      relations complexes).
-   ```
+   
 
 ---
 
