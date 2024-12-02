@@ -107,13 +107,6 @@ ORMProject/
 - **Insertion et Suppression** :
   - Testées via des appels dans `index.php`.
 
----
-
-## **Prochaines Étapes**
-- Ajouter un Query Builder pour générer des requêtes SQL dynamiques.
-- Intégrer des tests unitaires pour valider chaque composant.
-- Permettre la gestion de plusieurs entités avec une architecture extensible.
-- Ajouter des logs pour tracer les erreurs et les actions effectuées.
 
 ---
 
@@ -134,5 +127,55 @@ ORMProject/
    ```plaintext
    http://localhost/ORMProject/public/index.php?action=read
    ```
+
+## **Ce projet remplit les conditions des consignes demandées, il respecte les principes suivants :**
+1. Récupérer une entrée en base de données :
+   ```Réalisation dans le projet :
+   - La classe 'NewsRepository' inclut des méthodes comme 'findById' et 'findAll'
+     qui exécutent des requêtes SQL pour récupérer des données de la bdd.
+   - Ces requêtes récupèrent les informations depuis la tables 'news'.
+   ```
+2. Transmettre à l'application sous forme d'objet métier :
+   ```Réalisation dans le projet :
+   - Les résultats des requêtes SQL sont transformés en isntances de la classe 'News',
+     qui est une entité métier.
+   - La méthode 'mapRowToNews' dans 'NewsRepository' assure la transformation des données
+     brutes SQL en objets News.
+   - Ces objets 'News' contiennent des prorpiétés comme 'id', 'content' et 'createdAt',
+     accessibles via des méthodes de type "getter".
+   ```
+3. Respect des desings passés en revue :
+   ```Repository Pattern :
+   - Utilisé dans la classe 'NewsRepository' pour isoler la logique d'accès aux données.
+   ```
+   ```Adapter Pattern :
+   - Implémenter via la classe 'DatabaseAdapter", qui gère la connexion à la base de données
+     en encapsulant l'utilisation de PDO.
+   ```
+   ```Separation of Concerns :
+   - Les responsabilités sont séparées entre les adapteurs (gestion des bases de données),
+     les repositories (gestion des requêtes SQL), et les entités (représentation métier).
+   ```
+Validation :
+1. Objectif : Le projet transforme bien une entrée de la base de données en ojet métier
+   grâce aux méthodes du repository.
+2. Précision dans la consigne : l'objectif est atteint si la récupération et la transformation respectent les designs discutés (Repository et Adapter patterns), ce qui est le cas dans mon projet.
+
+3. 
+   ```Point de validation supplémentaires :
+   - L'objet métier ('News') est exploité dans l'application (par exemple, affiché dans
+     index.php').
+   - La récupération des données est conforme à un ORM simple (sans gestion des états ou
+     relations complexes).
+   ```
+
+   ---
+
+## **Prochaines Étapes**
+- Ajouter un Query Builder pour générer des requêtes SQL dynamiques.
+- Intégrer des tests unitaires pour valider chaque composant.
+- Permettre la gestion de plusieurs entités avec une architecture extensible.
+- Ajouter des logs pour tracer les erreurs et les actions effectuées.
+
 ## **Auteur**
 Samy Boudaoud M1 DEV IOT
